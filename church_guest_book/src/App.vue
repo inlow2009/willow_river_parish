@@ -50,9 +50,9 @@ methods: {
   },
   guestArrivedOrLeft(guest) {
    this.$guest_api.updateGuests(guest).then( () => {
-     this.message = guest.present ? 'Welcome, ' : 'Goodbye, '
+     this.message = guest.present ? 'Welcome to Willow River Parish, ' : 'Thank you for coming, '
      this.guest = guest.name
-     this.updateguests()
+     this.updateGuests()
    })
   },
 

@@ -1,6 +1,6 @@
 module.exports = (sequelize, DataTypes) => {
 
-    let Student = sequelize.define('Guest', {
+    let Guest = sequelize.define('Guest', {
         name: {
             type: DataTypes.STRING,
             allowNull: false
@@ -18,7 +18,7 @@ module.exports = (sequelize, DataTypes) => {
         }
     })
 
-    Student.sync({force: false}).then( () => {
+    Guest.sync({force: false}).then( () => {
         console.log('synced guest table')
     })
 

@@ -5,8 +5,8 @@
 
 </div>
         <div class="card add-guest m-2 p-2">
-            <h4 class="card-title">Willow River Parish Attendance</h4>
-
+            <h2 class="card-title">Willow River Parish Guest Book</h2>
+            <h5>Please sign in, thank you!</h5>
             <div class="form-group">
                 <label for="name">Name</label>
                 <!-- TODO v-model -->

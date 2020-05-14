@@ -23,7 +23,7 @@
                                       v-bind:guest="guest"
                                       v-bind:edit="editTable"
                                       v-on:guest-present="guestArrivedOrLeft"
-                                      v-on:delete-student="guestDeleted"
+                                      v-on:delete-guest="guestDeleted"
                                      ></GuestRow>
                      </tr>
                 </table>
@@ -53,7 +53,7 @@ export default {
             this.$emit('guest-present', guest)
         },
         guestDeleted(guest) {
-            this.$emit('delte-guest', guest)
+            this.$emit('delete-guest', guest)
         }
     }
 }

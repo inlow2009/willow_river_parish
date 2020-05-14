@@ -1,18 +1,18 @@
 let express = require('express')
 let Sequelize = require('sequelize')
 let db = require('../models')
-let guest = db.guest
+let Guest = db.Guest
 
 let router = express.Router()
 
 router.get('/guests', function(req, res, next){
-    guest.findAll( {order: ['name']} ).then( guests => {
+    Guest.findAll( {order: ['name']} ).then( guests => {
         return res.json(guests)
     }).catch( err => next(err))
 })
 
 router.post('/guests', function(req, res, next){
-    guest.create(req.body).then( (data) => {
+    Guest.create(req.body).then( (data) => {
         return res.status(201).send('ok')
     }).catch( err => {
         if (err instanceof Sequelize.ValidationError) {
@@ -25,7 +25,7 @@ router.post('/guests', function(req, res, next){
 })
 
 router.patch('/guests/:id', function(req, res, next) {
-    guest.update( 
+    Guest.update( 
         req.body, { 
             where: {
                  id: req.params.id} 
@@ -47,7 +47,7 @@ router.patch('/guests/:id', function(req, res, next) {
 })
 
 router.delete('/guests/:id', function(req, res, next){
-    guest.destroy({where: {id: req.params.id}}).then( rowsModified => {
+    Guest.destroy({where: {id: req.params.id}}).then( rowsModified => {
         return res.send('ok')
     }).catch( err => next(err))
 })

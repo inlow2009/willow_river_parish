@@ -10,7 +10,7 @@ export default {
     },
 
     addGuest(guest) {
-        return axios.post(base_url, student).then(response => {
+        return axios.post(base_url, guest).then(response => {
             return response.data
         })
     },

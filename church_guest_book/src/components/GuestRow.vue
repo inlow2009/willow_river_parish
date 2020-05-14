@@ -1,5 +1,5 @@
 <template>
-     <tr class="guestrow" v-bind:class="'present' + guest.present">         
+     <tr class="guestrow" v-bind:class="'present-' + guest.present">         
                       <td>{{guest.name}}</td>
                       <td>{{guest.emailAddress}}</td>
                       <td>{{guest.state}}</td>
