@@ -2,7 +2,7 @@ import Vue from 'vue'
 import App from './App.vue'
 import BootstrapVue from 'bootstrap-vue'
 
-import GuestAPIService from '@/services/guestService'
+import GuestAPIService from '@/services/GuestService'
 
 
 Vue.use(BootstrapVue)
