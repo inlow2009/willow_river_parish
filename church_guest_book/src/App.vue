@@ -6,7 +6,7 @@
 
     <GuestMessage
     v-bind:message="message"
-   v-bind:name="name"
+    v-bind:name="name"
    ></GuestMessage>
 
     <GuestTable 
@@ -51,7 +51,7 @@ methods: {
   guestArrivedOrLeft(guest) {
    this.$guest_api.updateGuests(guest).then( () => {
      this.message = guest.present ? 'Welcome to Willow River Parish, ' : 'Thank you for coming, '
-     this.guest = guest.name
+     this.name = guest.name
      this.updateGuests()
    })
   },
@@ -80,5 +80,6 @@ updateGuests() {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+  background-color: purple;
 }
 </style>

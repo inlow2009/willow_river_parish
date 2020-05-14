@@ -12,11 +12,15 @@ router.get('/guests', function(req, res, next){
 })
 
 router.post('/guests', function(req, res, next){
+
+    console.log(req.body)
+
     Guest.create(req.body).then( (data) => {
         return res.status(201).send('ok')
     }).catch( err => {
         if (err instanceof Sequelize.ValidationError) {
             let messages = err.errors.map( e => e.message )
+            console.log(messages)
             // 400 = bad request from user
             return res.status(400).json(messages)
         }

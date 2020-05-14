@@ -19,11 +19,11 @@
             </div>
             <div class="form-group">
               <label for="state">State</label>
-              <input id="state" class="form-control" v-model.trim="newGuestState">
+             <input id="state" class="form-control" v-model.trim="newGuestState">
             </div>
 
             <!-- TODO v-on:click event handler -->
-            <button class="btn btn-primary" v-on:click.prevent="addGuest">Add</button>
+            <button class="btn btn-success btn-lg" v-on:click.prevent="addGuest">Sign In</button>
         </div>
 
     </div>
@@ -54,7 +54,7 @@ export default {
                           this.errors.push('Please Enter Your State')
                         }                    
                         if (this.newGuestName && this.newEmailAddress && this.newGuestState)  {
-                     let guest = {  name: this.newGuestName, email: this.newEmailAddress, state: this.newGuestState, present: false}
+                     let guest = {  name: this.newGuestName, emailAddress: this.newEmailAddress, state: this.newGuestState, present: false}
                    this.$emit('guest-added', guest)
                     this.newGuestName = ''
                     this.newEmailAddress = ''
@@ -84,4 +84,8 @@ li {
 a {
   color: #42b983;
 }
+#body{
+  background-color: purple
+}
+ 
 </style>

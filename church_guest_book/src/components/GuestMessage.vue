@@ -2,8 +2,9 @@
     <div>
        <transition name="fade">
             <!--WELCOME MESSAGE and GOOBYE-->
-           <div class="alert alert-success" v-if="seeMessage">{{message}} {{name}}</div>
-        </transition>
+           <div class="alert alert-success" v-if="seeMessage">{{message}} {{name}}</div></transition>
+    
+        
     </div>
 </template>
 
