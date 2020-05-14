@@ -65,7 +65,7 @@ export default {
     overflow: scroll;
 }
 .present-true {
-    color: gray;
+    color: red;
     font-style: italic;
 }
 .present-false {
