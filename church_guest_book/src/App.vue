@@ -23,36 +23,53 @@ import GuestMessage from './components/GuestMessage.vue'
 import GuestTable from './components/GuestTable.vue'
 
 export default {
-  name: 'App',
-  components: {
+name: 'App',
+   data() {
+    return {
+    guests: [],
+    message: '',
+    name: ''
+  }
+}, 
+components: {
     NewGuestForm,
     GuestMessage,
     GuestTable
   },
-  data () {
-    return {
-      guests: [],
-      message: '',
-      name: ''
-    }
-  },
-  methods: {
-    newGuestAdded(guest) {
-    this.guests.push(guest)
-    this.guests.sort(function(s1, s2){
-      return s1.name.toLowerCase() < s2.name.toLowerCase() ? -1 : 1
+mounted() {
+  this.updateGuests()
+},
+methods: {
+  newGuestAdded(guest) {
+    this.$guest_api.addGuest(guest).then( guest => {
+      this.updateGuests()
+    }).catch(err => {
+      let msg = err.response.data.join(', ')
+      alert('Error adding guest.\n + msg')
     })
   },
   guestArrivedOrLeft(guest) {
-    this.message = guest.present ? 'Welcome to the morning service, ' : 'Thank you for your attendance, '
-    this.name = guest.name
+   this.$guest_api.updateGuests(guest).then( () => {
+     this.message = guest.present ? 'Welcome, ' : 'Goodbye, '
+     this.guest = guest.name
+     this.updateguests()
+   })
   },
 
 guestDeleted(guest) {
-  this.guests = this.guests.filter( s => s != guest)
+ this.$guest_api.deleteGuest(guest.id).then( () => {
+   this.updateGuests()
+ })
+},
+updateGuests() {
+  this.$guest_api.getAllGuests().then( guests => {
+    this.guests = guests
+  } )
 }
-  }
 }
+}
+
+  
 </script>
 
 <style>
